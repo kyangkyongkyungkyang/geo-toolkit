@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEO Toolkit Demo - 여성복 쇼핑몰 AI 검색 최적화</title>
+    <meta name="description" content="여성복 쇼핑몰을 위한 GEO(Generative Engine Optimization) 구현 데모. ChatGPT, Perplexity, Google AI에서 상품이 추천되도록 최적화하는 방법을 확인하세요.">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "무드앤무드",
+        "url": "https://kyangkyongkyungkyang.github.io/geo-toolkit",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://kyangkyongkyungkyang.github.io/geo-toolkit/search?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container">
+        <a href="index.html" class="logo">GEO Toolkit Demo</a>
+        <nav>
+            <a href="index.html" class="active">데모 대시보드</a>
+            <a href="products/linen-wide-pants-ivory.html">상품 페이지</a>
+            <a href="categories/bottoms/wide-pants.html">카테고리</a>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+<main>
+
+    <!-- 히어로 -->
+    <section class="hero">
+        <h1>GEO Toolkit Demo</h1>
+        <p>여성복 쇼핑몰을 위한 <strong>Generative Engine Optimization</strong> 구현 데모</p>
+        <p class="subtitle">AI 검색에서 내 상품이 추천되게 만드는 기술</p>
+    </section>
+
+    <!-- GEO 핵심 통계 -->
+    <section class="demo-section">
+        <h2>왜 GEO가 필요한가?</h2>
+        <div class="stat-grid">
+            <div class="stat-card">
+                <div class="stat-number">14.2%</div>
+                <div class="stat-label">AI 검색 유입 전환율</div>
+                <div class="stat-compare">vs Google 오가닉 2.8%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">95%</div>
+                <div class="stat-label">패션 쿼리 AI 결과 적용률</div>
+                <div class="stat-compare">전 업종 중 최고</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">+4,700%</div>
+                <div class="stat-label">AI 트래픽 YoY 성장</div>
+                <div class="stat-compare">2025.07 기준</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">$3.8M</div>
+                <div class="stat-label">Spanx GEO 연간 추가 매출</div>
+                <div class="stat-compare">전환율 100%+ 증가</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 데모 페이지 안내 -->
+    <section class="demo-section">
+        <h2>데모 페이지</h2>
+        <div class="demo-grid">
+            <div class="demo-card">
+                <h3>상품 상세 페이지</h3>
+                <p>GEO 최적화된 상품 페이지의 전체 구조를 확인하세요.</p>
+                <ul>
+                    <li>Product Schema JSON-LD</li>
+                    <li>FAQ Schema (Q&amp;A 형식)</li>
+                    <li>대화형 상품 설명 (5W1H)</li>
+                    <li>체형별 사이즈 가이드</li>
+                    <li>소재 상세 + 관리법</li>
+                    <li>고객 리뷰 Schema</li>
+                </ul>
+                <a href="products/linen-wide-pants-ivory.html" class="btn">상품 페이지 보기 &rarr;</a>
+            </div>
+            <div class="demo-card">
+                <h3>카테고리 페이지</h3>
+                <p>AI가 인용하기 좋은 카테고리 페이지 구조를 확인하세요.</p>
+                <ul>
+                    <li>CollectionPage + ItemList Schema</li>
+                    <li>소재별 비교 테이블</li>
+                    <li>체형별 추천 가이드</li>
+                    <li>Breadcrumb Schema</li>
+                </ul>
+                <a href="categories/bottoms/wide-pants.html" class="btn">카테고리 보기 &rarr;</a>
+            </div>
+            <div class="demo-card">
+                <h3>정적 파일</h3>
+                <p>AI 크롤러 관리를 위한 설정 파일을 확인하세요.</p>
+                <ul>
+                    <li>robots.txt (AI 크롤러 허용/차단)</li>
+                    <li>llms.txt (AI 콘텐츠 사용 정책)</li>
+                </ul>
+                <a href="robots.txt" class="btn">robots.txt &rarr;</a>
+                <a href="llms.txt" class="btn" style="margin-top:8px">llms.txt &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schema 미리보기 -->
+    <section class="demo-section">
+        <h2>Schema JSON-LD 미리보기</h2>
+        <p><code>SchemaService.java</code>가 동적으로 생성하는 JSON-LD를 미리 확인하세요. 페이지 소스보기(<kbd>Ctrl+U</kbd>)로 실제 삽입된 Schema를 확인할 수 있습니다.</p>
+
+        <h3>Product Schema</h3>
+        <details>
+            <summary>JSON-LD 보기 (클릭)</summary>
+            <pre><code>{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "린넨 블렌드 와이드 팬츠 - 아이보리",
+  "description": "출근길 편안함과 세미 포멀 드레스코드를 동시에...",
+  "brand": { "@type": "Brand", "name": "무드앤무드" },
+  "sku": "WP-2026-SS-001",
+  "gtin13": "8801234567890",
+  "material": "린넨 55%, 폴리에스터 40%, 스판덱스 5%",
+  "color": "아이보리",
+  "audience": {
+    "@type": "PeopleAudience",
+    "suggestedGender": "female",
+    "suggestedMinAge": 25,
+    "suggestedMaxAge": 40
+  },
+  "additionalProperty": [
+    { "@type": "PropertyValue", "name": "핏", "value": "세미와이드" },
+    { "@type": "PropertyValue", "name": "추천 상황", "value": "출근룩, 하객룩, 여행" },
+    { "@type": "PropertyValue", "name": "추천 체형", "value": "허벅지 넉넉한 체형 추천" }
+  ],
+  "offers": {
+    "@type": "Offer",
+    "price": "49900",
+    "priceCurrency": "KRW",
+    "availability": "https://schema.org/InStock"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.6",
+    "reviewCount": "189"
+  }
+}</code></pre>
+        </details>
+
+        <h3>FAQ Schema</h3>
+        <details>
+            <summary>JSON-LD 보기 (클릭)</summary>
+            <pre><code>{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "키 작은 여성도 입을 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "155cm 이하 여성분은 S 기준 기장이 길 수 있습니다..."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "여름 결혼식 하객룩으로 적합한가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "린넨 55% 블렌드 소재로 여름 야외 결혼식에 적합..."
+      }
+    }
+  ]
+}</code></pre>
+        </details>
+    </section>
+
+    <!-- AI 크롤러 현황 -->
+    <section class="demo-section">
+        <h2>AI 크롤러 관리 현황</h2>
+        <table class="crawler-table">
+            <thead>
+                <tr><th>크롤러</th><th>운영사</th><th>목적</th><th>robots.txt</th><th>GEO 영향도</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>ChatGPT-User</td><td>OpenAI</td><td>실시간 검색</td><td><span class="badge allow">Allow</span></td><td><span class="badge high">매우 높음</span></td></tr>
+                <tr><td>GPTBot</td><td>OpenAI</td><td>학습+검색</td><td><span class="badge partial">부분 허용</span></td><td><span class="badge high">높음</span></td></tr>
+                <tr><td>PerplexityBot</td><td>Perplexity</td><td>실시간 검색</td><td><span class="badge allow">Allow</span></td><td><span class="badge high">매우 높음</span></td></tr>
+                <tr><td>ClaudeBot</td><td>Anthropic</td><td>학습+검색</td><td><span class="badge partial">부분 허용</span></td><td><span class="badge high">높음</span></td></tr>
+                <tr><td>Googlebot</td><td>Google</td><td>검색+AI Overviews</td><td><span class="badge allow">Allow</span></td><td><span class="badge high">매우 높음</span></td></tr>
+                <tr><td>Meta-ExternalAgent</td><td>Meta</td><td>AI 학습 전용</td><td><span class="badge deny">Disallow</span></td><td><span class="badge low">낮음</span></td></tr>
+                <tr><td>Bytespider</td><td>ByteDance</td><td>AI 학습 전용</td><td><span class="badge deny">Disallow</span></td><td><span class="badge low">낮음</span></td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- GEO 구현 체크리스트 -->
+    <section class="demo-section">
+        <h2>GEO 구현 체크리스트</h2>
+        <div class="checklist">
+            <label><input type="checkbox" checked disabled> robots.txt - AI 검색 크롤러 허용 설정</label>
+            <label><input type="checkbox" checked disabled> llms.txt - AI 콘텐츠 사용 정책 명시</label>
+            <label><input type="checkbox" checked disabled> Product Schema JSON-LD (동적 생성)</label>
+            <label><input type="checkbox" checked disabled> FAQ Schema JSON-LD (Q&amp;A 형식)</label>
+            <label><input type="checkbox" checked disabled> Organization Schema (브랜드 엔티티)</label>
+            <label><input type="checkbox" checked disabled> Breadcrumb Schema (네비게이션)</label>
+            <label><input type="checkbox" checked disabled> 대화형 상품 설명 (5W1H 프레임워크)</label>
+            <label><input type="checkbox" checked disabled> 체형별 사이즈 가이드 테이블</label>
+            <label><input type="checkbox" checked disabled> 소재 상세 + 관리 방법</label>
+            <label><input type="checkbox" checked disabled> 상황별 코디 추천 (출근/하객/데이트)</label>
+            <label><input type="checkbox" checked disabled> 고객 리뷰 Schema 포함</label>
+            <label><input type="checkbox" checked disabled> 카테고리 소재별 비교 테이블</label>
+            <label><input type="checkbox" checked disabled> 최신 업데이트 날짜 표시</label>
+        </div>
+    </section>
+
+    <!-- 기술 스택 -->
+    <section class="demo-section">
+        <h2>기술 스택</h2>
+        <table>
+            <tbody>
+                <tr><td><strong>서버 (실제 운영)</strong></td><td>Java 8 + Spring Boot 2.7.18 + Thymeleaf 3.0</td></tr>
+                <tr><td><strong>Schema 생성</strong></td><td>SchemaService.java (Jackson으로 JSON-LD 동적 생성)</td></tr>
+                <tr><td><strong>데모 (이 페이지)</strong></td><td>GitHub Pages (정적 HTML)</td></tr>
+                <tr><td><strong>모니터링</strong></td><td>Python 스크립트 (AI 크롤러 분석, Schema 검증)</td></tr>
+            </tbody>
+        </table>
+        <p style="margin-top:16px">
+            <a href="https://github.com/kyangkyongkyungkyang/geo-toolkit" class="btn">GitHub 소스 코드 보기 &rarr;</a>
+        </p>
+    </section>
+
+</main>
+</div>
+
+<footer class="site-footer">
+    <div class="container">
+        <p>GEO Toolkit v1.0.0 | <a href="https://github.com/kyangkyongkyungkyang/geo-toolkit">GitHub Repository</a></p>
+    </div>
+</footer>
+
+</body>
+</html>
