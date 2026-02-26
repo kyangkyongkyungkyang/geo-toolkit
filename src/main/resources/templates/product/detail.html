@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/default}"
+      lang="ko">
+<head>
+    <th:block layout:fragment="head">
+        <!-- Product Schema JSON-LD -->
+        <script type="application/ld+json" th:utext="${productSchema}"></script>
+        <!-- FAQ Schema JSON-LD -->
+        <script type="application/ld+json" th:utext="${faqSchema}"></script>
+        <!-- Open Graph -->
+        <meta property="og:title" th:content="${product.name}">
+        <meta property="og:description" th:content="${product.description}">
+        <meta property="og:type" content="product">
+        <meta property="product:price:amount" th:content="${product.price}">
+        <meta property="product:price:currency" content="KRW">
+    </th:block>
+</head>
+<body>
+<main layout:fragment="content">
+    <article class="product-detail">
+
+        <!-- 상품 기본 정보 -->
+        <div class="product-header">
+            <div class="product-image">
+                <div class="image-placeholder">
+                    <span>상품 이미지</span>
+                    <small th:text="${product.name}"></small>
+                </div>
+            </div>
+            <div class="product-info">
+                <h1 th:text="${product.name}">상품명</h1>
+                <p class="price" th:text="${product.formattedPrice + '원'}">49,900원</p>
+                <p class="rating">
+                    <span class="stars" th:text="'★ ' + ${product.ratingValue}">★ 4.6</span>
+                    <span th:text="'(' + ${product.reviewCount} + '개 리뷰)'"></span>
+                </p>
+                <ul class="quick-info">
+                    <li><strong>소재:</strong> <span th:text="${product.material}"></span></li>
+                    <li><strong>색상:</strong> <span th:text="${product.color}"></span></li>
+                    <li><strong>핏:</strong> <span th:text="${product.fit}"></span></li>
+                    <li><strong>사이즈:</strong> <span th:text="${#strings.listJoin(product.sizes, ' / ')}"></span></li>
+                </ul>
+                <p class="stock-status">
+                    <span th:if="${product.inStock}" class="in-stock">구매 가능</span>
+                    <span th:unless="${product.inStock}" class="out-stock">품절</span>
+                </p>
+            </div>
+        </div>
+
+        <!--/* ============================================================
+             GEO 핵심: 대화형 상품 설명
+             AI가 이 텍스트를 추천 답변의 근거로 사용한다
+             ============================================================ */-->
+        <section class="geo-section">
+            <h2>이런 분께 추천합니다</h2>
+            <p th:text="${product.description}">상품 설명</p>
+            <ul class="occasion-list">
+                <li><strong>출근룩</strong>: 크롭 니트 또는 셔츠 인으로 깔끔한 오피스 코디</li>
+                <li><strong>하객룩</strong>: 새틴 블라우스 + 미니백으로 격식 있는 결혼식 코디</li>
+                <li><strong>여행룩</strong>: 오버핏 티셔츠 프론트 턱인으로 편안하면서도 스타일리시한 코디</li>
+                <li><strong>데이트룩</strong>: 프릴 블라우스 + 스트랩 샌들로 여성스러운 코디</li>
+            </ul>
+        </section>
+
+        <!-- 사이즈 & 핏 가이드 -->
+        <section class="geo-section">
+            <h2>사이즈 &amp; 핏 가이드</h2>
+            <p>세미와이드 핏으로 허벅지 부분에 여유가 있어 <strong>다양한 체형에 편안하게</strong> 착용 가능합니다.</p>
+            <table class="size-table" th:if="${product.sizeSpecs != null and !product.sizeSpecs.isEmpty()}">
+                <caption>사이즈 상세 (단위: cm)</caption>
+                <thead>
+                    <tr>
+                        <th>사이즈</th>
+                        <th>허리</th>
+                        <th>엉덩이</th>
+                        <th>허벅지</th>
+                        <th>총기장</th>
+                        <th>추천 체중</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="spec : ${product.sizeSpecs}">
+                        <td th:text="${spec.size}"></td>
+                        <td th:text="${spec.waist}"></td>
+                        <td th:text="${spec.hip}"></td>
+                        <td th:text="${spec.thigh}"></td>
+                        <td th:text="${spec.totalLength}"></td>
+                        <td th:text="${spec.weightRange}"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p th:if="${product.modelInfo}">
+                <strong>모델 착용 정보:</strong> <span th:text="${product.modelInfo}"></span>
+            </p>
+        </section>
+
+        <!-- 소재 & 관리 방법 -->
+        <section class="geo-section">
+            <h2>소재 &amp; 관리 방법</h2>
+            <dl class="spec-list">
+                <dt>소재 구성</dt>
+                <dd th:text="${product.material}"></dd>
+                <dt>두께감</dt>
+                <dd th:text="${product.thickness}"></dd>
+                <dt>신축성</dt>
+                <dd th:text="${product.stretch}"></dd>
+                <dt>비침</dt>
+                <dd th:text="${product.seeThrough}"></dd>
+                <dt>세탁 방법</dt>
+                <dd th:text="${product.washCare}"></dd>
+            </dl>
+        </section>
+
+        <!--/* ============================================================
+             GEO 핵심: FAQ 섹션
+             AI 엔진이 Q&A 형식을 강하게 선호한다
+             ============================================================ */-->
+        <section class="geo-section faq-section" th:if="${product.faqs != null and !product.faqs.isEmpty()}">
+            <h2>자주 묻는 질문</h2>
+            <div class="faq-item" th:each="faq : ${product.faqs}">
+                <h3 th:text="${faq.question}">질문</h3>
+                <p th:text="${faq.answer}">답변</p>
+            </div>
+        </section>
+
+        <!-- 리뷰 -->
+        <section class="geo-section" th:if="${product.reviews != null and !product.reviews.isEmpty()}">
+            <h2>고객 리뷰</h2>
+            <div class="review-item" th:each="review : ${product.reviews}">
+                <div class="review-header">
+                    <span class="review-author" th:text="${review.author}"></span>
+                    <span class="review-date" th:text="${review.datePublished}"></span>
+                    <span class="review-rating" th:text="'★'.repeat(review.rating)"></span>
+                </div>
+                <p th:text="${review.body}"></p>
+            </div>
+        </section>
+
+    </article>
+</main>
+</body>
+</html>

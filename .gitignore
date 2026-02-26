@@ -3,12 +3,25 @@
 Thumbs.db
 desktop.ini
 
-# Editor files
+# Editor / IDE
 *.swp
 *.swo
 *~
 .vscode/
 .idea/
+*.iml
+
+# Maven
+target/
+*.jar
+!.mvn/wrapper/maven-wrapper.jar
+
+# Java
+*.class
+*.log
+
+# Spring Boot
+spring-shell.log
 
 # Script output files
 *.report.json

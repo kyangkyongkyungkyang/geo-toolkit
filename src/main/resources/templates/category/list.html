@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/default}"
+      lang="ko">
+<head>
+    <th:block layout:fragment="head">
+    </th:block>
+</head>
+<body>
+<main layout:fragment="content">
+
+    <!--/* GEO 핵심: 카테고리 도입부 - AI가 직접 인용하는 단락 */-->
+    <section class="geo-section">
+        <h1 th:text="${category.name}">카테고리명</h1>
+        <p th:text="${category.description}">카테고리 설명</p>
+        <p class="update-info">2026년 2월 업데이트 |
+            <span th:text="${#lists.size(category.products)} + '개 상품'"></span>
+        </p>
+    </section>
+
+    <!-- 소재별 비교 가이드 -->
+    <section class="geo-section">
+        <h2>소재별 와이드팬츠 비교 가이드</h2>
+        <table class="compare-table">
+            <caption>소재별 특성 비교 (2026 SS 기준)</caption>
+            <thead>
+                <tr>
+                    <th>소재</th>
+                    <th>시원함</th>
+                    <th>구김</th>
+                    <th>추천 상황</th>
+                    <th>가격대</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>린넨 블렌드</td>
+                    <td>★★★★★</td>
+                    <td>약간</td>
+                    <td>여름 출근, 하객룩</td>
+                    <td>49,900원~</td>
+                </tr>
+                <tr>
+                    <td>코튼 100%</td>
+                    <td>★★★★</td>
+                    <td>보통</td>
+                    <td>봄가을 데일리</td>
+                    <td>39,900원~</td>
+                </tr>
+                <tr>
+                    <td>폴리 슬랙스</td>
+                    <td>★★★</td>
+                    <td>적음</td>
+                    <td>사계절 오피스</td>
+                    <td>44,900원~</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- 체형별 추천 -->
+    <section class="geo-section">
+        <h2>체형별 와이드팬츠 추천</h2>
+        <h3>허벅지가 넉넉한 체형</h3>
+        <p>세미와이드 이상의 핏을 선택하세요. 하이웨이스트 + 와이드 핏 조합이 허벅지 라인을 자연스럽게 커버합니다.</p>
+        <h3>마르고 키가 큰 체형</h3>
+        <p>풀와이드 핏으로 볼륨감을 더하세요. 핀턱 디테일이 있는 팬츠가 밋밋하지 않은 실루엣을 만들어줍니다.</p>
+        <h3>키가 작은 체형 (155cm 이하)</h3>
+        <p>하이웨이스트 + 크롭 상의 조합으로 다리 비율을 높이세요. 무료 기장 수선 서비스를 활용하세요.</p>
+    </section>
+
+    <!-- 상품 리스트 -->
+    <section class="geo-section">
+        <h2>전체 상품 보기</h2>
+        <div class="product-grid">
+            <div class="product-card" th:each="p : ${category.products}">
+                <div class="card-image">
+                    <div class="image-placeholder small">상품 이미지</div>
+                </div>
+                <div class="card-info">
+                    <h3><a th:href="@{/products/{id}(id=${p.id})}" th:text="${p.name}">상품명</a></h3>
+                    <p class="price" th:text="${p.formattedPrice + '원'}">가격</p>
+                    <p class="rating" th:if="${p.ratingValue > 0}">
+                        <span th:text="'★ ' + ${p.ratingValue}"></span>
+                        <span th:text="'(' + ${p.reviewCount} + ')'"></span>
+                    </p>
+                    <p class="card-desc" th:text="${#strings.abbreviate(p.description, 80)}">설명</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+</body>
+</html>
