@@ -1,0 +1,139 @@
+# ============================================================
+# robots.txt - 여성복 쇼핑몰 GEO 최적화 설정
+# 생성일: 2026-02-26
+# 목적: AI 검색 크롤러 허용 + 민감 영역 차단
+# ============================================================
+# 사용법: 이 파일을 웹사이트 루트(https://yourdomain.com/robots.txt)에 배치
+
+# ------------------------------------------------------------
+# 1. 전통 검색 엔진 (완전 허용)
+# ------------------------------------------------------------
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Yeti
+# 네이버 검색봇
+Allow: /
+
+User-agent: Daumoa
+# 다음/카카오 검색봇
+Allow: /
+
+# ------------------------------------------------------------
+# 2. AI 검색/인용 크롤러 (허용 - GEO 핵심)
+# 이 크롤러들이 콘텐츠를 읽어야 AI 검색 결과에 노출됩니다
+# ------------------------------------------------------------
+
+# OpenAI - ChatGPT 실시간 검색용 (허용 필수)
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /admin/
+Disallow: /checkout/
+Disallow: /my-account/
+Disallow: /api/
+
+# OpenAI - GPTBot (검색 + 학습 겸용)
+# GEO 노출을 위해 허용 권장. 학습 차단만 원하면 이 봇만 Disallow
+User-agent: GPTBot
+Allow: /products/
+Allow: /categories/
+Allow: /blog/
+Allow: /size-guide/
+Allow: /style-guide/
+Allow: /faq/
+Allow: /about/
+Disallow: /admin/
+Disallow: /checkout/
+Disallow: /my-account/
+Disallow: /api/
+Disallow: /cart/
+Disallow: /wishlist/
+
+# Anthropic - ClaudeBot (검색 + 학습 겸용)
+User-agent: ClaudeBot
+Allow: /products/
+Allow: /categories/
+Allow: /blog/
+Allow: /size-guide/
+Allow: /style-guide/
+Allow: /faq/
+Allow: /about/
+Disallow: /admin/
+Disallow: /checkout/
+Disallow: /my-account/
+Disallow: /api/
+
+# Anthropic - Claude 웹 검색 전용
+User-agent: claudebot-search
+Allow: /
+
+# Perplexity AI 검색봇
+User-agent: PerplexityBot
+Allow: /
+Disallow: /admin/
+Disallow: /checkout/
+Disallow: /my-account/
+Disallow: /api/
+
+# Google AI / Gemini (Google-Extended는 AI 학습용)
+User-agent: Google-Extended
+Allow: /products/
+Allow: /blog/
+Allow: /faq/
+Disallow: /admin/
+Disallow: /checkout/
+Disallow: /my-account/
+
+# Microsoft Copilot
+User-agent: Copilot
+Allow: /
+Disallow: /admin/
+Disallow: /checkout/
+Disallow: /my-account/
+
+# ------------------------------------------------------------
+# 3. AI 학습 전용 크롤러 (선택적 차단)
+# 검색 노출과 무관하게 데이터 수집만 하는 크롤러
+# ------------------------------------------------------------
+
+# Meta AI 학습용 크롤러
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+# ByteDance AI 학습용
+User-agent: Bytespider
+Disallow: /
+
+# Apple AI 학습용
+User-agent: Applebot-Extended
+Disallow: /
+
+# Common Crawl (대규모 웹 수집)
+User-agent: CCBot
+Disallow: /
+
+# ------------------------------------------------------------
+# 4. 기타 봇 기본 정책
+# ------------------------------------------------------------
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /checkout/
+Disallow: /my-account/
+Disallow: /api/internal/
+Disallow: /cart/
+Disallow: /wishlist/
+Disallow: /search?*
+Disallow: /*?sort=*
+Disallow: /*?filter=*
+Disallow: /*?page=*&page=*
+
+# ------------------------------------------------------------
+# 5. 사이트맵 (필수)
+# ------------------------------------------------------------
+Sitemap: https://yourdomain.com/sitemap.xml
+Sitemap: https://yourdomain.com/sitemap-products.xml
+Sitemap: https://yourdomain.com/sitemap-blog.xml
