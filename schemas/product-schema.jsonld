@@ -1,0 +1,182 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+
+  "name": "린넨 블렌드 와이드 팬츠 - 아이보리",
+  "alternateName": "Linen Blend Wide Pants - Ivory",
+  "description": "출근길 편안함과 세미 포멀 드레스코드를 동시에 충족하는 린넨 블렌드 와이드 팬츠입니다. 허리 뒤편 밴딩 디자인으로 장시간 앉아 있어도 편안하며, 린넨 55% 혼방 소재로 여름 야외 결혼식 하객룩이나 출장에도 적합합니다. 155~170cm 여성에게 자연스러운 기장이며, 허벅지가 넉넉한 세미와이드 핏으로 다양한 체형에 어울립니다.",
+
+  "brand": {
+    "@type": "Brand",
+    "name": "[브랜드명]",
+    "url": "https://yourdomain.com"
+  },
+
+  "sku": "WP-2026-SS-001",
+  "gtin13": "8801234567890",
+  "mpn": "WP2026SS001",
+  "productID": "WP-2026-SS-001",
+
+  "category": "여성의류 > 하의 > 와이드팬츠",
+
+  "material": "린넨 55%, 폴리에스터 40%, 스판덱스 5%",
+  "color": "아이보리",
+  "pattern": "무지",
+
+  "image": [
+    "https://yourdomain.com/images/products/wp-2026-ss-001-main.jpg",
+    "https://yourdomain.com/images/products/wp-2026-ss-001-detail-1.jpg",
+    "https://yourdomain.com/images/products/wp-2026-ss-001-model-front.jpg",
+    "https://yourdomain.com/images/products/wp-2026-ss-001-model-back.jpg",
+    "https://yourdomain.com/images/products/wp-2026-ss-001-fabric-closeup.jpg"
+  ],
+
+  "url": "https://yourdomain.com/products/linen-wide-pants-ivory",
+
+  "audience": {
+    "@type": "PeopleAudience",
+    "suggestedGender": "female",
+    "suggestedMinAge": 25,
+    "suggestedMaxAge": 40
+  },
+
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "핏",
+      "value": "세미와이드"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "기장",
+      "value": "풀기장 (모델 착용 기준 164cm)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "두께감",
+      "value": "중간 (여름 착용 적합)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "신축성",
+      "value": "약간 있음"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "비침",
+      "value": "없음"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "세탁방법",
+      "value": "손세탁 또는 드라이클리닝 권장"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "추천 스타일링",
+      "value": "크롭 니트, 블라우스, 오버핏 셔츠와 매칭"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "추천 상황",
+      "value": "출근룩, 하객룩, 여행, 브런치"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "추천 체형",
+      "value": "허벅지가 넉넉한 체형, 하체 볼륨감이 있는 체형에 특히 추천"
+    }
+  ],
+
+  "size": ["S", "M", "L", "XL"],
+  "sizeSystem": "KR",
+
+  "offers": {
+    "@type": "AggregateOffer",
+    "lowPrice": "49900",
+    "highPrice": "49900",
+    "priceCurrency": "KRW",
+    "availability": "https://schema.org/InStock",
+    "priceValidUntil": "2026-06-30",
+    "itemCondition": "https://schema.org/NewCondition",
+    "seller": {
+      "@type": "Organization",
+      "name": "[브랜드명]"
+    },
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": "3000",
+        "currency": "KRW"
+      },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 1,
+          "maxValue": 2,
+          "unitCode": "d"
+        },
+        "transitTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 1,
+          "maxValue": 3,
+          "unitCode": "d"
+        }
+      },
+      "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "KR"
+      }
+    },
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "KR",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "merchantReturnDays": 14,
+      "returnMethod": "https://schema.org/ReturnByMail",
+      "returnFees": "https://schema.org/FreeReturn"
+    }
+  },
+
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.6",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "234",
+    "reviewCount": "189"
+  },
+
+  "review": [
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "김**"
+      },
+      "datePublished": "2026-02-15",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "reviewBody": "164cm 55kg M 사이즈 착용했어요. 허리 밴딩이라 편하고, 린넨이라 시원해요. 회사에 입고 갔더니 어디서 샀냐고 많이 물어봤습니다. 하객룩으로도 좋을 것 같아요!"
+    },
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "이**"
+      },
+      "datePublished": "2026-02-10",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "4",
+        "bestRating": "5"
+      },
+      "reviewBody": "158cm 50kg S 사이즈 구매. 기장이 조금 길어서 2cm 수선했어요. 핏은 정말 예쁘고 사무실에서 입기 딱 좋습니다. 아이보리 색상이 고급스러워요."
+    }
+  ]
+}

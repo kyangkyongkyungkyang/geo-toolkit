@@ -1,0 +1,19 @@
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Script output files
+*.report.json
+scripts/output/
+
+# Python
+__pycache__/
+*.pyc

@@ -1,0 +1,56 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+
+  "name": "[브랜드명]",
+  "alternateName": "[Brand Name English]",
+  "url": "https://yourdomain.com",
+  "logo": "https://yourdomain.com/images/logo.png",
+  "description": "20대 후반~30대 여성을 위한 데일리 & 오피스 패션 쇼핑몰. 합리적 가격의 고품질 여성복을 큐레이션합니다.",
+
+  "foundingDate": "2020-01-01",
+  "founder": {
+    "@type": "Person",
+    "name": "[대표자명]"
+  },
+
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "[상세주소]",
+    "addressLocality": "[시/구]",
+    "addressRegion": "[도/시]",
+    "postalCode": "[우편번호]",
+    "addressCountry": "KR"
+  },
+
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+82-XX-XXXX-XXXX",
+      "contactType": "customer service",
+      "availableLanguage": ["Korean"],
+      "hoursAvailable": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    }
+  ],
+
+  "sameAs": [
+    "https://www.instagram.com/yourbrand",
+    "https://www.youtube.com/@yourbrand",
+    "https://blog.naver.com/yourbrand",
+    "https://pf.kakao.com/_yourbrand"
+  ],
+
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://yourdomain.com/search?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
