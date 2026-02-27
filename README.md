@@ -74,7 +74,7 @@ mvn spring-boot:run
 ```
 
 ### 접속
-- ** 데모 페이지 ** 
+- ** 데모 페이지 ** : https://kyangkyongkyungkyang.github.io/geo-toolkit/
 
 ## GEO 핵심 기능
 
