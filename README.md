@@ -74,12 +74,7 @@ mvn spring-boot:run
 ```
 
 ### 접속
-
-- **데모 대시보드**: http://localhost:8080/demo
-- **상품 상세 페이지**: http://localhost:8080/products/linen-wide-pants-ivory
-- **카테고리 페이지**: http://localhost:8080/categories/bottoms/wide-pants
-- **robots.txt**: http://localhost:8080/robots.txt
-- **llms.txt**: http://localhost:8080/llms.txt
+- ** 데모 페이지 ** 
 
 ## GEO 핵심 기능
 
